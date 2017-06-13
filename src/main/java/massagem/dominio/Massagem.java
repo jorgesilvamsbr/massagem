@@ -5,26 +5,23 @@ import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import javax.persistence.Entity;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 public class Massagem extends EntidadeBase{
 
     private final LocalDate data;
-    private  final List<Colaborador> colaboradores;
+    private  final Colaborador colaborador;
 
-    public Massagem(LocalDate data, List<Colaborador> colaboradores) throws ExcecaoDeCampoObrigatorio {
-        validarCamposObrigatorios(data, colaboradores);
-        this.colaboradores = colaboradores;
+    public Massagem(LocalDate data, Colaborador colaborador) throws ExcecaoDeCampoObrigatorio {
+        validarCamposObrigatorios(data, colaborador);
+        this.colaborador = colaborador;
         this.data = data;
     }
 
-    private void validarCamposObrigatorios(LocalDate data, List<Colaborador> colaboradores) throws ExcecaoDeCampoObrigatorio {
+    private void validarCamposObrigatorios(LocalDate data, Colaborador colaborador) throws ExcecaoDeCampoObrigatorio {
         new ExcecaoDeCampoObrigatorio()
                 .quandoNulo(data, "A data informada é inválida")
-                .quandoListaVazia(colaboradores, "A lista informada é vazia")
+                .quandoNulo(colaborador, "O colaborador não pode ser vazio")
                 .entaoDispara();
     }
 
@@ -32,7 +29,7 @@ public class Massagem extends EntidadeBase{
         return data;
     }
 
-    public List<Colaborador> getColaboradores() {
-        return colaboradores;
+    public Colaborador getColaborador() {
+        return colaborador;
     }
 }
