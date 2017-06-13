@@ -5,6 +5,7 @@ import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
