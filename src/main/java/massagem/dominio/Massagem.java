@@ -5,6 +5,7 @@ import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -12,7 +13,6 @@ public class Massagem extends EntidadeBase{
 
     @ManyToOne
     private  final Colaborador colaborador;
-i
     private final LocalDate data;
 
     public Massagem(LocalDate data, Colaborador colaborador) throws ExcecaoDeCampoObrigatorio {

@@ -12,9 +12,9 @@ public class EntidadeBase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
 	@Column(nullable = false)
-	protected Integer id;
+	protected Long id;
 
-	public Integer getId() {  
+	public Long getId() {
 		return id;  
 	}  
 
