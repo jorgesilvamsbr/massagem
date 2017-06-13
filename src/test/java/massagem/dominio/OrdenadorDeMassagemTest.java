@@ -34,7 +34,7 @@ public class OrdenadorDeMassagemTest {
         massagem3 = MassagemBuilder.novo().comData(LocalDate.of(2017, 5,25)).comColaborador(colaborador3).criar();
 
         MassagemRepository massagemRepository = Mockito.mock(MassagemRepository.class);
-        this.ordenadorDeMassagem = new OrdenadorDeMassagem(massagemRepository);
+        this.ordenadorDeMassagem = new OrdenadorDeMassagem(massagemRepository, apagaMassagemVencida);
         Mockito.when(massagemRepository.findAll()).thenReturn(Arrays.asList(massagem1, massagem2, massagem3));
     }
 

@@ -19,12 +19,14 @@ public class GeraListaDeSelecionados {
     private final ColaboradorRepository colaboradorRepository;
     private final MassagemRepository massagemRepository;
     private final OrdenadorDeMassagem ordenadorDeMassagem;
+    private final ApagaMassagemVencida apagaMassagemVencida;
 
     @Autowired
-    public GeraListaDeSelecionados(ColaboradorRepository colaboradorRepository, MassagemRepository massagemRepository) {
+    public GeraListaDeSelecionados(ColaboradorRepository colaboradorRepository, MassagemRepository massagemRepository, ApagaMassagemVencida apagaMassagemVencida) {
         this.colaboradorRepository = colaboradorRepository;
         this.massagemRepository = massagemRepository;
-        this.ordenadorDeMassagem = new OrdenadorDeMassagem(this.massagemRepository);
+        this.apagaMassagemVencida = apagaMassagemVencida;
+        this.ordenadorDeMassagem = new OrdenadorDeMassagem(this.massagemRepository, this.apagaMassagemVencida);
     }
 
     public List<ColaboradorDTO> selecionar(List<ColaboradorDTO> candidatosAMassagem){
