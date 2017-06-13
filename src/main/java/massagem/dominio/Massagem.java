@@ -4,13 +4,16 @@ import massagem.dominio.base.EntidadeBase;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity
 public class Massagem extends EntidadeBase{
 
-    private final LocalDate data;
+    @ManyToOne
     private  final Colaborador colaborador;
+    
+    private final LocalDate data;
 
     public Massagem(LocalDate data, Colaborador colaborador) throws ExcecaoDeCampoObrigatorio {
         validarCamposObrigatorios(data, colaborador);
