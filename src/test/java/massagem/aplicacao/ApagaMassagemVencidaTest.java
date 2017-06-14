@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertThat;
