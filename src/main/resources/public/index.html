@@ -5,7 +5,6 @@
     <title>Relaxe Aqui!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/inputmask.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -17,15 +16,32 @@
                 <input id="cpf" class="form-control js-cpf" type="text" placeholder="xxx.xxxx.xxx-xx">
             </div>
             <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-primary">Eu quero!</button>
+                <button type="button" class="btn btn-primary" onclick="salvarColaboradorInteressado();">Eu quero!</button>
             </div>
-            <script>
-                $(document).ready(function () {
-                    $('.js-cpf').inputmask('999.999.999-99');
-                })
-            </script>
         </form>
+        <script>
+            $(document).ready(function () {
+                $('.js-cpf').inputmask('999.999.999-99');
+
+            })
+            function salvarColaboradorInteressado(){
+                let data = {cpf:$("#cpf").val()};
+                $.ajax({
+                    type: 'POST',
+                    url: urlBase.obter() + "/colaborador",
+                    contentType: 'application/json; charset=utf-8',
+                    traditional: true,
+                    data: JSON.stringify(data)
+                }).done((status) => {
+                    resolve(status);
+                }).fail((status) => {
+                    reject(status);
+                });
+            }
+        </script>
     </div>
 </div>
+<script src="js/inputmask.js"></script>
+<script src="js/urlBase.js"></script>
 </body>
 </html>

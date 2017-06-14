@@ -1,6 +1,6 @@
 package massagem.repositorio;
 
-import massagem.dominio.Massagem;
+import massagem.dominio.massagem.Massagem;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

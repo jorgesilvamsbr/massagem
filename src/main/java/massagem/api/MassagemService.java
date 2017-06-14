@@ -1,7 +1,7 @@
 package massagem.api;
 
-import massagem.aplicacao.ColaboradorDTO;
-import massagem.aplicacao.GeraListaDeSelecionados;
+import massagem.aplicacao.colaborador.ColaboradorDTO;
+import massagem.aplicacao.colaborador.ConsultaListaDeColaboradoresSelecionados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,10 +14,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/massagem")
 public class MassagemService {
 
-    private final GeraListaDeSelecionados geraListaDeSelecionados;
+    private final ConsultaListaDeColaboradoresSelecionados geraListaDeSelecionados;
 
     @Autowired
-    public MassagemService(GeraListaDeSelecionados geraListaDeSelecionados) {
+    public MassagemService(ConsultaListaDeColaboradoresSelecionados geraListaDeSelecionados) {
         this.geraListaDeSelecionados = geraListaDeSelecionados;
     }
 

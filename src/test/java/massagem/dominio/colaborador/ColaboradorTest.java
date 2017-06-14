@@ -1,7 +1,9 @@
-package massagem.dominio;
+package massagem.dominio.colaborador;
 
 import static org.junit.Assert.*;
 
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.colaborador.ColaboradorBuilder;
 import massagem.dominio.cpf.Cpf;
 import massagem.dominio.cpf.CpfInvalido;
 import org.junit.Test;

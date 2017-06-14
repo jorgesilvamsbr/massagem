@@ -1,10 +1,10 @@
-import jQuery from 'jquery';
+import * as $ from "jquery";
 
 export default class Http {
 
     static get(url, callback) {
         return new Promise((resolve, reject) => {
-            jQuery.ajax({
+            $.ajax({
                 type: 'GET',
                 url: url
             }).done((response) => {
@@ -17,7 +17,7 @@ export default class Http {
 
     static put(url, data) {
         return new Promise((resolve, reject) => {
-            jQuery.ajax({
+            $.ajax({
                 type: 'PUT',
                 url: url,
                 contentType: 'application/json; charset=utf-8',
@@ -33,7 +33,7 @@ export default class Http {
 
     static post(url, data) {
         return new Promise((resolve, reject) => {
-            jQuery.ajax({
+            $.ajax({
                 type: 'POST',
                 url: url,
                 contentType: 'application/json; charset=utf-8',
@@ -49,7 +49,7 @@ export default class Http {
 
     static delete(url) {
         return new Promise((resolve, reject) => {
-            jQuery.ajax({
+            $.ajax({
                 type: 'DELETE',
                 url: url
             }).done((status) => {

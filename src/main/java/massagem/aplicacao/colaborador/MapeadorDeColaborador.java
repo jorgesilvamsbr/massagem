@@ -1,6 +1,6 @@
-package massagem.aplicacao;
+package massagem.aplicacao.colaborador;
 
-import massagem.dominio.Colaborador;
+import massagem.dominio.colaborador.Colaborador;
 
 import java.util.List;
 import java.util.stream.Collectors;

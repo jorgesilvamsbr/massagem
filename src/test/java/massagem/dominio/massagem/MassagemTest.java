@@ -1,7 +1,10 @@
-package massagem.dominio;
+package massagem.dominio.massagem;
 
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.colaborador.ColaboradorBuilder;
+import massagem.dominio.massagem.Massagem;
+import massagem.dominio.massagem.MassagemBuilder;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import java.time.LocalDate;

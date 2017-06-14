@@ -1,4 +1,4 @@
-package massagem.aplicacao;
+package massagem.aplicacao.massagem;
 
 import massagem.repositorio.MassagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;

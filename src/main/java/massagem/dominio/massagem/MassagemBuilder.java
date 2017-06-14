@@ -1,11 +1,11 @@
-package massagem.dominio;
+package massagem.dominio.massagem;
 
 
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.colaborador.ColaboradorBuilder;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 public class MassagemBuilder {
 

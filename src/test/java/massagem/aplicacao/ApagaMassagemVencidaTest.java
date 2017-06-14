@@ -1,9 +1,10 @@
 package massagem.aplicacao;
 
-import massagem.dominio.Colaborador;
-import massagem.dominio.ColaboradorBuilder;
-import massagem.dominio.Massagem;
-import massagem.dominio.MassagemBuilder;
+import massagem.aplicacao.massagem.ApagaMassagemVencida;
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.colaborador.ColaboradorBuilder;
+import massagem.dominio.massagem.Massagem;
+import massagem.dominio.massagem.MassagemBuilder;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 import massagem.repositorio.ColaboradorRepository;
 import massagem.repositorio.MassagemRepository;

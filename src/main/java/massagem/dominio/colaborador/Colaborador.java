@@ -1,4 +1,4 @@
-package massagem.dominio;
+package massagem.dominio.colaborador;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

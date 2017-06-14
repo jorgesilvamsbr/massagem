@@ -1,8 +1,9 @@
-package massagem.aplicacao;
+package massagem.aplicacao.colaborador;
 
-import massagem.dominio.Colaborador;
-import massagem.dominio.Massagem;
-import massagem.dominio.OrdenadorDeMassagem;
+import massagem.aplicacao.massagem.ApagaMassagemVencida;
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.massagem.Massagem;
+import massagem.dominio.massagem.OrdenadorDeMassagem;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 import massagem.repositorio.ColaboradorRepository;
 import massagem.repositorio.MassagemRepository;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class GeraListaDeSelecionados {
+public class ConsultaListaDeColaboradoresSelecionados {
 
     private final ColaboradorRepository colaboradorRepository;
     private final MassagemRepository massagemRepository;
@@ -22,7 +23,7 @@ public class GeraListaDeSelecionados {
     private final ApagaMassagemVencida apagaMassagemVencida;
 
     @Autowired
-    public GeraListaDeSelecionados(ColaboradorRepository colaboradorRepository, MassagemRepository massagemRepository, ApagaMassagemVencida apagaMassagemVencida) {
+    public ConsultaListaDeColaboradoresSelecionados(ColaboradorRepository colaboradorRepository, MassagemRepository massagemRepository, ApagaMassagemVencida apagaMassagemVencida) {
         this.colaboradorRepository = colaboradorRepository;
         this.massagemRepository = massagemRepository;
         this.apagaMassagemVencida = apagaMassagemVencida;

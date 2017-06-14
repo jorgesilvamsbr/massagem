@@ -1,7 +1,6 @@
 package massagem.repositorio;
 
-import massagem.dominio.Colaborador;
-import massagem.dominio.Massagem;
+import massagem.dominio.colaborador.Colaborador;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

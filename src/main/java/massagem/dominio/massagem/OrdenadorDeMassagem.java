@@ -1,6 +1,7 @@
-package massagem.dominio;
+package massagem.dominio.massagem;
 
-import massagem.aplicacao.ApagaMassagemVencida;
+import massagem.aplicacao.massagem.ApagaMassagemVencida;
+import massagem.dominio.colaborador.Colaborador;
 import massagem.repositorio.MassagemRepository;
 
 import java.time.LocalDate;

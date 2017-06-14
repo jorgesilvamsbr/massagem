@@ -1,4 +1,4 @@
-package massagem.dominio;
+package massagem.dominio.colaborador;
 
 import massagem.dominio.cpf.Cpf;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;

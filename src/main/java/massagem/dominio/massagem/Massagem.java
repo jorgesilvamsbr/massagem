@@ -1,11 +1,11 @@
-package massagem.dominio;
+package massagem.dominio.massagem;
 
 import massagem.dominio.base.EntidadeBase;
+import massagem.dominio.colaborador.Colaborador;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity

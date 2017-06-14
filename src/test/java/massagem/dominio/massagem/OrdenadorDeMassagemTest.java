@@ -1,6 +1,8 @@
-package massagem.dominio;
+package massagem.dominio.massagem;
 
-import massagem.aplicacao.ApagaMassagemVencida;
+import massagem.aplicacao.massagem.ApagaMassagemVencida;
+import massagem.dominio.colaborador.Colaborador;
+import massagem.dominio.colaborador.ColaboradorBuilder;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 import massagem.repositorio.MassagemRepository;
 import org.junit.Before;
