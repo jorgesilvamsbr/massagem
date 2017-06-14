@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ApagaMassagemVencida {
 
     private final MassagemRepository massagemRepository;
-    private static final int QUANTIDADE_DE_DIAS_VIGENTE_DA_MASSAGEM = 60;
+    private static final int QUANTIDADE_DE_DIAS_VIGENTE_DA_MASSAGEM = 30;
 
     @Autowired
     public ApagaMassagemVencida(MassagemRepository massagemRepository) {

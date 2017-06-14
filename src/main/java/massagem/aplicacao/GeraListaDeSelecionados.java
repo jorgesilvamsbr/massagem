@@ -31,11 +31,8 @@ public class GeraListaDeSelecionados {
 
     public List<ColaboradorDTO> selecionar(List<ColaboradorDTO> candidatosAMassagem){
         List<Colaborador> colaboradores = candidatosAMassagem.stream().map(candidatoDTO -> this.colaboradorRepository.findOne(candidatoDTO.getId())).collect(Collectors.toList());
-
         List<Colaborador> colaboradoresSelecionados = this.ordenadorDeMassagem.obterSelecionados(colaboradores);
-
         salvarMassagemDoDia(colaboradoresSelecionados);
-
         return MapeadorDeColaborador.mapear(colaboradoresSelecionados);
     }
 
