@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class OrdenadorDeMassagem {
 
-    public static final int NUMERO_MAXIMO_DE_COLABORADORES_PERMITIDOS = 11;
+    private static final int NUMERO_MAXIMO_DE_COLABORADORES_PERMITIDOS = 11;
     private Map<Colaborador, Integer> colaboradorComCalculoDoCoefiente = new HashMap<>();
     private final MassagemRepository massagemRepository;
     private final ApagaMassagemVencida apagaMassagemVencida;
@@ -27,13 +27,15 @@ public class OrdenadorDeMassagem {
     public List<Colaborador> obterSelecionados(List<Colaborador> colaboradoresInteressados) {
         apagaMassagemVencida.apagar();
         List<Massagem> massagens = (List<Massagem>) this.massagemRepository.findAll();
+        priorizarInteressados(colaboradoresInteressados, massagens);
+        return selecionarApenasOsDozePrimeirosColaboradores();
+    }
 
+    private void priorizarInteressados(List<Colaborador> colaboradoresInteressados, List<Massagem> massagens) {
         colaboradoresInteressados.forEach(colaborador -> {
             Integer coeficienteDoColaborador = validarUltimasMassagensDentroDoPeriodoDe60Dias(massagens, colaborador);
             colaboradorComCalculoDoCoefiente.put(colaborador, coeficienteDoColaborador);
         });
-
-        return selecionarApenasOsDozePrimeirosColaboradores();
     }
 
     private List<Colaborador> selecionarApenasOsDozePrimeirosColaboradores() {
@@ -59,7 +61,7 @@ public class OrdenadorDeMassagem {
             }
         }
         return Integer.valueOf(
-                String.valueOf(quantidadeDeMassagensRealizadasNosUltimos60Dias)
+                        String.valueOf(quantidadeDeMassagensRealizadasNosUltimos60Dias)
                         + String.valueOf(ultimaDataDeMassagem.getMonth().getValue())
                         + String.valueOf(ultimaDataDeMassagem.getDayOfMonth()));
     }
