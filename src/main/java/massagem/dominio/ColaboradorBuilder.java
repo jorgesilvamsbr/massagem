@@ -1,19 +1,17 @@
 package massagem.dominio;
 
+import massagem.dominio.cpf.Cpf;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
 
 public class ColaboradorBuilder {
 	
 	private String nome;
 	private String matricula;
+	private Cpf cpf;
 
 	public ColaboradorBuilder() {
 		this.nome = "Nome Qualquer";
 		this.matricula = "4235";
-	}
-	
-	public Colaborador criar() throws ExcecaoDeCampoObrigatorio {
-		return new Colaborador(nome, matricula);
 	}
 	
 	public static ColaboradorBuilder novo() {
@@ -28,5 +26,14 @@ public class ColaboradorBuilder {
 	public ColaboradorBuilder comMatricula(String matricula) {
 		this.matricula = matricula;
 		return this;
+	}
+
+	public ColaboradorBuilder comCPF(Cpf cpf) {
+		this.cpf = cpf;
+		return this;
+	}
+
+	public Colaborador criar() throws ExcecaoDeCampoObrigatorio {
+		return new Colaborador(nome, matricula, cpf);
 	}
 }
