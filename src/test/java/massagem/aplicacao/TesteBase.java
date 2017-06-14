@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-@ComponentScan("massagem.*")
+@RunWith(SpringRunner.class)
 public class TesteBase extends AbstractTransactionalJUnit4SpringContextTests {
+
 }

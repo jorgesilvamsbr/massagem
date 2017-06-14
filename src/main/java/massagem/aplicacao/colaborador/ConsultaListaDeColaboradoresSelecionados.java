@@ -9,6 +9,7 @@ import massagem.repositorio.ColaboradorRepository;
 import massagem.repositorio.MassagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -30,6 +31,7 @@ public class ConsultaListaDeColaboradoresSelecionados {
         this.ordenadorDeMassagem = new OrdenadorDeMassagem(this.massagemRepository, this.apagaMassagemVencida);
     }
 
+    @Transactional
     public List<ColaboradorDTO> selecionar(List<ColaboradorDTO> candidatosAMassagem){
         List<Colaborador> colaboradores = candidatosAMassagem.stream().map(candidatoDTO -> this.colaboradorRepository.findOne(candidatoDTO.getId())).collect(Collectors.toList());
         List<Colaborador> colaboradoresSelecionados = this.ordenadorDeMassagem.obterSelecionados(colaboradores);

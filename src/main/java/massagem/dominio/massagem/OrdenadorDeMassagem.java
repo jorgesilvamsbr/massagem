@@ -52,7 +52,7 @@ public class OrdenadorDeMassagem {
         LocalDate ultimaDataDeMassagem = LocalDate.MIN;
 
         for (Massagem massagem : massagens) {
-            if (colaborador.getMatricula().equals(massagem.getColaborador().getMatricula())) {
+            if (colaborador.getCPF().equals(massagem.getColaborador().getCPF())) {
                 quantidadeDeMassagensRealizadasNosUltimos60Dias++;
                 Period intervalo = Period.between(massagem.getData(), LocalDate.now());
                 if (ChronoUnit.DAYS.between(massagem.getData(), LocalDate.now()) < intervaloDeDiasMaisProximoDaDataDeHoje) {

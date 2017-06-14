@@ -3,6 +3,7 @@ package massagem.aplicacao;
 import massagem.aplicacao.massagem.ApagaMassagemVencida;
 import massagem.dominio.colaborador.Colaborador;
 import massagem.dominio.colaborador.ColaboradorBuilder;
+import massagem.dominio.cpf.CpfInvalido;
 import massagem.dominio.massagem.Massagem;
 import massagem.dominio.massagem.MassagemBuilder;
 import massagem.excecao.ExcecaoDeCampoObrigatorio;
@@ -11,7 +12,7 @@ import massagem.repositorio.MassagemRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
@@ -21,8 +22,8 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertThat;
 
 
-@DataJpaTest
 @RunWith(SpringRunner.class)
+@SpringBootTest
 public class ApagaMassagemVencidaTest extends TesteBase {
 
     @Autowired
@@ -50,26 +51,26 @@ public class ApagaMassagemVencidaTest extends TesteBase {
         assertThat(quantidadeMassagensEsperadas, equalTo(massagens.spliterator().estimateSize()));
     }
 
-    private void massagemRealizadaHaSessentaDias() throws ExcecaoDeCampoObrigatorio {
+    private void massagemRealizadaHaSessentaDias() throws ExcecaoDeCampoObrigatorio, CpfInvalido {
         int sessentaDias = 60;
         Massagem massagemDe60Dias = MassagemBuilder.novo().comData(LocalDate.now().minusDays(sessentaDias)).comColaborador(criarColaborador()).criar();
         massagemRepository.save(massagemDe60Dias);
     }
 
-    private void massagemRealizadaHaTrintaDias() throws ExcecaoDeCampoObrigatorio {
+    private void massagemRealizadaHaTrintaDias() throws ExcecaoDeCampoObrigatorio, CpfInvalido {
         int trintaDias = 30;
         Massagem massagemDe30Dias = MassagemBuilder.novo().comData(LocalDate.now().minusDays(trintaDias)).comColaborador(criarColaborador()).criar();
         massagemRepository.save(massagemDe30Dias);
     }
 
-    private Massagem massagemRealizadaHoje() throws ExcecaoDeCampoObrigatorio {
+    private Massagem massagemRealizadaHoje() throws ExcecaoDeCampoObrigatorio, CpfInvalido {
         Colaborador colaborador = criarColaborador();
         Massagem massagemHoje = MassagemBuilder.novo().comData(LocalDate.now()).comColaborador(colaborador).criar();
         massagemRepository.save(massagemHoje);
         return massagemHoje;
     }
 
-    private Colaborador criarColaborador() throws ExcecaoDeCampoObrigatorio {
+    private Colaborador criarColaborador() throws ExcecaoDeCampoObrigatorio, CpfInvalido {
         Colaborador colaborador = ColaboradorBuilder.novo().criar();
         colaboradorRepository.save(colaborador);
         return colaborador;

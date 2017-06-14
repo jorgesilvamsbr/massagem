@@ -34,7 +34,7 @@ public class MassagemTest {
 
     @Test
     public void deve_possuir_um_colaboradore() throws Exception {
-        Colaborador colaboradorEsperado = ColaboradorBuilder.novo().comMatricula("2664").criar();
+        Colaborador colaboradorEsperado = ColaboradorBuilder.novo().criar();
 
         Massagem massagem = MassagemBuilder.novo().comColaborador(colaboradorEsperado).criar();
 
