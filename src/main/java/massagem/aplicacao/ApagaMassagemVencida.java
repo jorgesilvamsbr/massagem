@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ApagaMassagemVencida {
 
     private final MassagemRepository massagemRepository;
-    private final int quantidadeDeDiasVigenteDaMassagem = 30;
+    private static final int QUANTIDADE_DE_DIAS_VIGENTE_DA_MASSAGEM = 30;
 
     @Autowired
     public ApagaMassagemVencida(MassagemRepository massagemRepository) {
@@ -20,7 +20,7 @@ public class ApagaMassagemVencida {
 
     @Transactional
     public void apagar() {
-        LocalDate dataDeVenciamentoDaMassagem = LocalDate.now().minusDays(quantidadeDeDiasVigenteDaMassagem);
+        LocalDate dataDeVenciamentoDaMassagem = LocalDate.now().minusDays(QUANTIDADE_DE_DIAS_VIGENTE_DA_MASSAGEM);
         massagemRepository.apagarAte(dataDeVenciamentoDaMassagem);
     }
 }
