@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Relaxe Aqui!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/inputmask.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <form>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <label for="cpf">É só informar o cpf</label>
-                <input id="cpf" class="form-control" type="text" placeholder="xxx.xxxx.xxx-xx">
+                <input id="cpf" class="form-control js-cpf" type="text" placeholder="xxx.xxxx.xxx-xx">
             </div>
-            <button class="form form-button">Eu quero!</button>
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-primary">Eu quero!</button>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('.js-cpf').inputmask('999.999.999-99');
+                })
+            </script>
         </form>
     </div>
 </div>
