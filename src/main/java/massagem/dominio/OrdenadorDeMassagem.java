@@ -1,5 +1,6 @@
 package massagem.dominio;
 
+import massagem.aplicacao.ApagaMassagemVencida;
 import massagem.repositorio.MassagemRepository;
 
 import java.time.LocalDate;
@@ -14,14 +15,17 @@ import java.util.stream.Collectors;
 public class OrdenadorDeMassagem {
 
     public static final int NUMERO_MAXIMO_DE_COLABORADORES_PERMITIDOS = 11;
-    private final MassagemRepository massagemRepository;
     private Map<Colaborador, Integer> colaboradorComCalculoDoCoefiente = new HashMap<>();
+    private final MassagemRepository massagemRepository;
+    private final ApagaMassagemVencida apagaMassagemVencida;
 
-    public OrdenadorDeMassagem(MassagemRepository massagemRepository) {
+    public OrdenadorDeMassagem(MassagemRepository massagemRepository, ApagaMassagemVencida apagaMassagemVencida) {
         this.massagemRepository = massagemRepository;
+        this.apagaMassagemVencida = apagaMassagemVencida;
     }
 
     public List<Colaborador> obterSelecionados(List<Colaborador> colaboradoresInteressados) {
+        apagaMassagemVencida.apagar();
         List<Massagem> massagens = (List<Massagem>) this.massagemRepository.findAll();
 
         colaboradoresInteressados.forEach(colaborador -> {
@@ -44,7 +48,7 @@ public class OrdenadorDeMassagem {
         int intervaloDeDiasMaisProximoDaDataDeHoje = Integer.MAX_VALUE;
         LocalDate ultimaDataDeMassagem = LocalDate.MIN;
 
-        for (Massagem massagem : massagens ) {
+        for (Massagem massagem : massagens) {
             if (colaborador.getMatricula().equals(massagem.getColaborador().getMatricula())) {
                 quantidadeDeMassagensRealizadasNosUltimos60Dias++;
                 Period intervalo = Period.between(massagem.getData(), LocalDate.now());
@@ -55,7 +59,7 @@ public class OrdenadorDeMassagem {
             }
         }
         return Integer.valueOf(
-                        String.valueOf(quantidadeDeMassagensRealizadasNosUltimos60Dias)
+                String.valueOf(quantidadeDeMassagensRealizadasNosUltimos60Dias)
                         + String.valueOf(ultimaDataDeMassagem.getMonth().getValue())
                         + String.valueOf(ultimaDataDeMassagem.getDayOfMonth()));
     }

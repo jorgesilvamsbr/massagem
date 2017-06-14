@@ -13,7 +13,6 @@ public class Massagem extends EntidadeBase{
 
     @ManyToOne
     private  final Colaborador colaborador;
-    
     private final LocalDate data;
 
     public Massagem(LocalDate data, Colaborador colaborador) throws ExcecaoDeCampoObrigatorio {
